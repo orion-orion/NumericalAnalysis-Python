@@ -4,36 +4,35 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-06-23 15:42:51
 LastEditors: ZhangHongYu
-LastEditTime: 2021-06-23 15:43:49
+LastEditTime: 2021-07-08 20:45:32
 '''
 import numpy as np
 # 归一化同时迭代，k是迭代步数
-# 欲求A特征值，A肯定是方阵
-def nsi(A, k):
-    # Q0 = I
-    # eye为方阵接收一个参数n
-    Q = np.eye(A.shape[0]) 
+# 欲推往A特征值的方向，A肯定是方阵
+def PageRank(A, p, k, q):
+    assert(A.shape[0]==A.shape[1])
+    n = A.shape[0]
+    M = A.copy().astype(np.float32) #注意要转为浮点型
+    for i in range(n):
+        M[i, :] = M[i, :]/np.sum(M[i, :])
+    G = (q/n)*np.ones((n,n)) + (1-q)*M
+    G_T = G.T
+    p_t = p.copy()
     for i in range(k):
-        # 乘A, qr分解将其正交化后再乘A，以此迭代，这种写法很简洁，紧致
-        Q, R = np.linalg.qr(A.dot(Q), mode="reduced")
-    # 瑞利商
-    # 对角线元素即为所有特征值
-    lams = np.diag(Q.T.dot(A).dot(Q))
-    return Q, lams 
+        y = G_T.dot(p_t)
+        p_t = y/np.max(y)
+    return p_t/np.sum(p_t)
 if __name__ == '__main__':
     A = np.array(
         [
-            [1, 3],
-            [2, 2]
+            [0, 1, 1],
+            [0, 0, 1],
+            [1, 0, 0]
         ]
     )
-    k = 10
-    Q, lams = nsi(A, k)
-
-    # 特征向量为(-0.707, -0.707)，(-0.707, 0.707)
-    # 特征值是4和-1
-    # 占优特征值为4，占优特征向量为(-0.707, -0.707)，与幂迭代结果一致
-    # 幂迭代占优特征向量为(0.7, 0.7)，占优特征值为4
-    # 真实客观情况：占优特征向量(1, 1)，占优特征值为4
-    # 一个特征值对应的特征向量(组)可以随意缩放长度，其实是无数个
-    print(Q, "\n\n", lams)
+    k = 20
+    p = np.array([1, 1, 1])
+    q = 0.15 #概率为1移动到一个随机页面通常为0.15
+    # 概率为1-q移动到与本页面链接的页面
+    R= PageRank(A, p, k, q)
+    print(R)
