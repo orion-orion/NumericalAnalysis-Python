@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-02 20:26:12
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-02 20:37:21
+LastEditTime: 2021-07-11 16:44:01
 '''
 import numpy as np
 import math
@@ -30,9 +30,9 @@ def gss(f, a, b, k):
             f1 = f2
             f2 = f(x2)
     y = (a+b)/2    
-    return y
+    return(a, b), y
 if __name__ == '__main__':
     a, b = 0, 1
     k = 15
-    y = gss(lambda x: x**6-11*x**3+17*x**2-7*x+1, a, b, k)
-    print(y)
+    (a,b), y = gss(lambda x: x**6-11*x**3+17*x**2-7*x+1, a, b, k)
+    print("(%.4f, %.4f)"%(a, b), y)

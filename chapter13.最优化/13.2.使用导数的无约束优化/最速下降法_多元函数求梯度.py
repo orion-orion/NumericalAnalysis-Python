@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-02 22:03:03
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-02 22:25:13
+LastEditTime: 2021-07-10 22:03:49
 '''
 import numpy as np
 import math
@@ -19,7 +19,7 @@ def gradient_descent(x0, k, f, eta): #迭代k次,包括x0在内共k+1个数
         y.backward() 
         with torch.no_grad(): 
             x.sub_(eta*x.grad)
-        x.grad.zero_() 
+        x.grad.zero_()  #这里的梯度必须要清0，否则计算是错的
     x_star = x.detach().numpy()
     return f(x_star), x_star 
 
