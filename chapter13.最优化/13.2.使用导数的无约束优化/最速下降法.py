@@ -1,10 +1,10 @@
 '''
-Descripttion: 
+Descripttion: 最速下降法，此处用到求多元函数的梯度
 Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-02 22:03:03
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-10 22:03:49
+LastEditTime: 2021-07-24 19:12:38
 '''
 import numpy as np
 import math

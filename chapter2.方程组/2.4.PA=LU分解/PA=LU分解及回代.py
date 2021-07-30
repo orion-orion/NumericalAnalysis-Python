@@ -5,7 +5,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-05-22 21:53:43
 LastEditors: ZhangHongYu
-LastEditTime: 2021-05-29 22:35:30
+LastEditTime: 2021-07-26 12:21:27
 '''
 import numpy as np
 from copy import deepcopy
@@ -17,7 +17,7 @@ def check_and_permute(P, A, j, b):
     max_row = j
     max_val = A[j, j]
     #每次置换对应左乘一个置换矩阵
-    P_plus = np.eye(A.shape[0], dtype=np.float32) #初始化置换矩阵
+    P_plus = np.eye(A.shape[0], dtype=np.float32) #初始化要更新的左乘置换矩阵
     for i in range(j+1, A.shape[0]):
         if abs(A[i, j]) > abs(max_val):
             max_val = A[i, j]
@@ -37,6 +37,7 @@ def check_and_permute(P, A, j, b):
     P_plus[j, j], P_plus[max_row, max_row] = 0, 0
     P_plus[j, max_row], P_plus[max_row, j] = 1, 1
     #print(P_plus)
+    print("当次置换的矩阵为:", P_plus)
     P = np.matmul(P_plus, P)
     return P
 
@@ -45,11 +46,12 @@ def PA_LU_decomposition(A): #假设A是方阵，A.shape[0] == A.shape[1], python
     assert(A.shape[0] == A.shape[1])
     U = deepcopy(A)
     L = np.zeros(A.shape, dtype=np.float32)
-    P = np.eye(A.shape[0], dtype=np.float32) #初始化置换矩阵
+    P = np.eye(A.shape[0], dtype=np.float32) #初始化置换矩阵为单位阵I
     for j in range(U.shape[1]): #消去第j列的数
         # abs(U[j ,j])为要消去的主元
-        #这个P莫名奇妙在函数内修改不了，我吐了
-        P=check_and_permute(P, U, j, b)
+        print("置换前的U：", U)
+        P = check_and_permute(P, U, j, b)
+        print("置换后的U", U)
         L[j, j] = 1
         # 消去主对角线以下的元素A[i, j]
         for i in range(j+1, U.shape[0]):

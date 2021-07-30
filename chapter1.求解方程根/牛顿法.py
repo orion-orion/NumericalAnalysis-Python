@@ -4,12 +4,12 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-03-08 15:57:56
 LastEditors: ZhangHongYu
-LastEditTime: 2021-06-06 22:17:31
+LastEditTime: 2021-07-24 15:26:54
 '''
 import numpy as np
 import math
 import torch
-#x.grad为Dy/dx(假设Dy为最后一个节点)
+#x.grad为dy/dx(假设dy为最后一个节点)
 def newton(x0, k, f): #迭代k次,包括x0在内共k+1个数
     # 初始化计算图参数
     x = torch.tensor([x0], requires_grad=True)
@@ -17,7 +17,7 @@ def newton(x0, k, f): #迭代k次,包括x0在内共k+1个数
         # 每次迭代都要调用函数前向传播一次并重新求梯度，类似于网络训练，然后更新变量(这里是x)
         # 前向传播，注意x要用新的对象，否则后面y.backgrad后会释放
         y = f(x)
-        # 因为调用backward的对象自身不算梯度，相当于d y /dy = 1->sy.grad其实还是None?
+        # 因为调用backward的对象自身不算梯度，相当于dy/dy = 1-> y.grad其实还是None
         # 或者令loss=y.sum() loss.backward()
         # y.backward(gradient = torch.tensor([1.0]))
         y.backward() # y.grad是None

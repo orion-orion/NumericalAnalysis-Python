@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-05-22 21:53:43
 LastEditors: ZhangHongYu
-LastEditTime: 2021-05-29 21:01:44
+LastEditTime: 2021-07-25 09:45:50
 '''
 import numpy as np
 from copy import deepcopy
@@ -32,7 +32,7 @@ def LU_decomposition(A): #假设A是方阵，A.shape[0] == A.shape[1], python中
 
 #常规的上三角进行回代(此例中对角线不为0)
 def gaussion_putback_U(A, b):
-    x = np.zeros((A.shape[0], 1))
+    x = np.zeros((A.shape[0], 1), dtype=np.float32)
     for i in reversed(range(A.shape[0])): #算出第i个未知数
         for j in range(i+1, A.shape[1]):
             b[i] = b[i] - A[i, j] * x[j]
@@ -41,7 +41,7 @@ def gaussion_putback_U(A, b):
 
 #下三角进行回代(此例中对角线不为0)
 def gaussion_putback_L(A, b):
-    x = np.zeros((A.shape[0], 1))
+    x = np.zeros((A.shape[0], 1), dtype=np.float32)
     for i in range(A.shape[0]): #算出第i个未知数
         for j in range(i):
             b[i] = b[i] - A[i, j] * x[j]

@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-06-22 16:55:06
 LastEditors: ZhangHongYu
-LastEditTime: 2021-06-22 20:00:33
+LastEditTime: 2021-07-24 20:20:13
 '''
 import numpy as np
 
@@ -15,12 +15,13 @@ def Ray(A, x, k):
         u = x/np.linalg.norm(x)
         
         #用瑞利商表示特征值的近似值lam
-        lam = u.T.dot(A).dot(u)
+        lam = u.dot(A).dot(u)
 
         # 求解(A-lamj-1 I)Xj = uj-1
         # 收敛后A-lamj-1 I为奇异矩阵，不能继续迭代
         # 故在这种情况出现之前终止迭代
         try:
+            # 单位矩阵I用np.eye实现
             x = np.linalg.solve(A - lam*np.eye(A.shape[0]), u) #逆向幂迭代
         except  np.linalg.LinAlgError as e:
             print("A-lam I 为奇异矩阵，停止迭代!")
@@ -29,7 +30,7 @@ def Ray(A, x, k):
     # 最后一次迭代得到的特征向量x需要归一化为u
     u = x / np.linalg.norm(x)
     # 瑞利商(这里容易漏掉)
-    lam = u.T.dot(A).dot(u)
+    lam = u.dot(A).dot(u)
     return u, lam        
 
 if __name__ == '__main__':

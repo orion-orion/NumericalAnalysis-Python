@@ -1,10 +1,10 @@
 '''
-Descripttion: 
+Descripttion: 牛顿法，此处用到求多元函数的hessian矩阵
 Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-02 22:03:03
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-11 15:41:40
+LastEditTime: 2021-07-24 19:12:15
 '''
 import numpy as np
 import math
