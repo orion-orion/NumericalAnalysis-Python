@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-02 22:03:03
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-24 19:12:15
+LastEditTime: 2021-10-17 19:55:26
 '''
 import numpy as np
 import math
@@ -26,11 +26,11 @@ def gradient_descent(x0, k, f, alpha): #迭代k次,包括x0在内共k+1个数
         # 高阶倒数我们需要调用functional.hession接口，这里返回hession矩阵
         # 注意，Hession矩阵要求逆
         H = hessian(f, x)
-        with torch.no_grad(): 
+        with torch.no_grad():
             # 如果为了避免求逆，也可以解线性方程组Hv = -x.grad，使x+v
             # v = np.linalg.solve(H, -x.grad)
-            # x.add_(torch.tensor(v))
-            x.sub_(torch.matmul(torch.inverse(H), x.grad))
+            # x += torch.tensor(v)
+            x -= torch.matmul(torch.inverse(H), x.grad)
         x.grad.zero_() 
     x_star = x.detach().numpy()
     return f(x_star), x_star 
@@ -39,6 +39,7 @@ if __name__ == '__main__':
     x0 = np.array([1.0, 1.0])
     k = 25 # k为迭代次数
     eta = 1 # 
+    alpha = 0
     # 基于牛顿法的推导，在最优解附近我们希望eta=1
     minimum, x_star = gradient_descent(x0, k, f, alpha)
     print("the minimum is %.5f, the x_star is: ( %.5f, %.5f)"\

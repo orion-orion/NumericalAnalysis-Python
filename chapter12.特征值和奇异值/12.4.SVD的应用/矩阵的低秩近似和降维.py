@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-01 21:35:04
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-09 21:20:30
+LastEditTime: 2021-10-16 15:34:09
 '''
 import numpy as np
 from sklearn.decomposition import PCA
@@ -17,18 +17,19 @@ def approximation(A, p):
 
 if __name__ == '__main__':
     # 例一：
-    # A = np.array(
-    #     [
-    #         [0, 1],
-    #         [1, 3/2],
-    #     ]
-    # )
     A = np.array(
         [
-            [3, 2, -2, -3],
-            [2, 4, -1, -5]
+            [0, 1],
+            [1, 3/2],
         ]
     )
+    # 例二：
+    # A = np.array(
+    #     [
+    #         [3, 2, -2, -3],
+    #         [2, 4, -1, -5]
+    #     ]
+    # )
 
     # p为近似矩阵的秩，秩p<=r
     p = 1

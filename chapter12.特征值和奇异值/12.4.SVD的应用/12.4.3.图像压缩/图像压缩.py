@@ -4,14 +4,17 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-07-01 21:35:04
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-15 17:14:47
+LastEditTime: 2021-10-16 16:16:45
 '''
 import numpy as np
 from sklearn.decomposition import PCA
 import cv2 as cv
 import matplotlib.pyplot as plt
-plt.rcParams[u'font.sans-serif'] = ['simhei']
-plt.rcParams['axes.unicode_minus'] = False
+import matplotlib as mpl
+mpl.rcParams['font.sans-serif']=[u'SimHei']
+mpl.rcParams['axes.unicode_minus']=False
+# import matplotlib.font_manager as font_manager
+# font_manager._rebuild()
 def approximation(A, p):
     U, s, V_T = np.linalg.svd(A)
     B = np.zeros(A.shape)

@@ -4,7 +4,7 @@ Version: 1.0
 Author: ZhangHongYu
 Date: 2021-06-23 21:25:39
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-01 20:07:39
+LastEditTime: 2021-10-15 21:56:23
 '''
 import numpy as np
 def svd(A):
@@ -36,11 +36,11 @@ def svd(A):
         basis = np.zeros((A.shape[0], 1))
         basis[i] = 1
         U = np.concatenate([U, basis], axis=1)
-    S = np.diag(singular_values)
-    S = np.concatenate([S, np.zeros((A.shape[0]-A.shape[1], A.shape[1]))], axis=0)
+    # S = np.diag(singular_values)
+    # S = np.concatenate([S, np.zeros((A.shape[0]-A.shape[1], A.shape[1]))], axis=0)
     eigen_vectors = [vec.reshape(-1, 1) for vec in eigen_vectors]
     eigen_vectors = np.concatenate(eigen_vectors, axis=1)
-    return U, S, eigen_vectors
+    return U, singular_values, eigen_vectors
 
 if __name__ == '__main__':
     # 例一：非方阵
@@ -52,24 +52,24 @@ if __name__ == '__main__':
     #     ]
     # )
     # 例二：方阵
-    A = np.array(
-       [
-           [0, 1],
-           [0, -1]
-       ]
-    )
-    # 例三：对称矩阵
     # A = np.array(
-    #     [
-    #         [0, 1],
-    #         [1, 3/2]
-    #     ]
+    #    [
+    #        [0, 1],
+    #        [0, -1]
+    #    ]
     # )
+    # 例三：对称矩阵
+    A = np.array(
+        [
+            [0, 1],
+            [1, 3/2]
+        ]
+    )
     U, S, V = svd(A)
-    print(U, "\n\n", S, "\n\n", V)
-
-    print("\n\n\n")
-
+    print("我们实现的算法结果：")
+    print(U, "\n", S, "\n", V)
+    print("\n")
+    print("调用库函数的计算结果：")
     # 调用api核对
     U2, S2, V2 = np.linalg.svd(A)
-    print(U2, "\n\n", S2, "\n\n", V2)
+    print(U2, "\n", S2, "\n", V2)

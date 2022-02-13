@@ -2,9 +2,9 @@
 Descripttion: 
 Version: 1.0
 Author: ZhangHongYu
-Date: 2021-06-20 14:57:30
+Date: 2021-09-19 19:53:53
 LastEditors: ZhangHongYu
-LastEditTime: 2021-07-17 16:32:46
+LastEditTime: 2022-02-13 09:26:45
 '''
 import numpy as np
 if __name__ == '__main__':
@@ -17,8 +17,8 @@ if __name__ == '__main__':
         ]
     )
     y = [1, 0, 0, -2]
-    # 多项式拟合的话要先对X预处理，从第三列开始依次计算出第二列的次方值(还是拟合平面上的点，不过扩充了)
-    # 此处X一共三列，最高次数有2次，即抛物线
+    # 对数据矩阵x预处理，从第三列开始依次计算出第二列的次方值(还是拟合平面上的点，不过扩充了)
+    # 此处A一共三列，最高次数有2次，即抛物线
     A = np.concatenate([np.ones([x.shape[0], 1]), x, x**2], axis=1)
     AT_A = A.T.dot(A)
     AT_y = A.T.dot(y)
@@ -26,4 +26,3 @@ if __name__ == '__main__':
     print("最小二乘估计得到的参数:", c_bar)
     # 条件数
     print("条件数:", np.linalg.cond(AT_A))
-    
