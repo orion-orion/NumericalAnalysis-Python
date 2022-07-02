@@ -4,12 +4,12 @@
  * @Author: ZhangHongYu
  * @Date: 2021-09-19 19:53:53
  * @LastEditors: ZhangHongYu
- * @LastEditTime: 2022-07-02 19:05:02
+ * @LastEditTime: 2022-07-02 19:13:10
 -->
 # 数值分析
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/orion-orion/NumericalAnalysis)
 [![](https://img.shields.io/github/license/orion-orion/Distributed-Algorithm-PySpark)](https://github.com/orion-orion/NumericalAnalysis/blob/master/LICENSE)
-
+[![](https://img.shields.io/github/stars/orion-orion/NumericalAnalysis?style=social)](https://github.com/orion-orion/NumericalAnalysis)
 ## 1 简介
 本项目为《数值分析》(Timothy Sauer著) 中的算法实现（使用Python+Numpy+Pytorch）。
 
