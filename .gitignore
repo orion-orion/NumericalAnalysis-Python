@@ -12,8 +12,11 @@ __pycache__/
 # Plot results
 *.png
 
-# VSCode
+# IDE - VSCode
 .vscode/
+
+# OS generated files
+.DS_Store
 
 # Distribution / packaging
 .Python
