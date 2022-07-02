@@ -4,11 +4,11 @@
  * @Author: ZhangHongYu
  * @Date: 2021-09-19 19:53:53
  * @LastEditors: ZhangHongYu
- * @LastEditTime: 2022-07-02 19:13:10
+ * @LastEditTime: 2022-07-02 19:33:57
 -->
 # 数值分析
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/orion-orion/NumericalAnalysis)
-[![](https://img.shields.io/github/license/orion-orion/Distributed-Algorithm-PySpark)](https://github.com/orion-orion/NumericalAnalysis/blob/master/LICENSE)
+[![](https://img.shields.io/github/license/orion-orion/NumericalAnalysis)](https://github.com/orion-orion/NumericalAnalysis/blob/master/LICENSE)
 [![](https://img.shields.io/github/stars/orion-orion/NumericalAnalysis?style=social)](https://github.com/orion-orion/NumericalAnalysis)
 ## 1 简介
 本项目为《数值分析》(Timothy Sauer著) 中的算法实现（使用Python+Numpy+Pytorch）。
@@ -71,7 +71,7 @@
     - PageRank算法 [[算法讲解]](https://www.cnblogs.com/orion-orion/p/15405907.html) 
     - QR算法
   - 12.3 奇异值分解
-    -  奇异值分解
+    -  奇异值分解 [[算法讲解]](https://www.cnblogs.com/orion-orion/p/15415610.html) 
   - 12.4 奇异值分解的应用
     - 矩阵的低秩近似和降维 [[算法讲解]](https://www.cnblogs.com/orion-orion/p/15415610.html) 
     - 推荐系统应用 [[算法讲解]](https://www.cnblogs.com/orion-orion/p/15415610.html) 
