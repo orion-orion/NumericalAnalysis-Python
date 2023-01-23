@@ -6,16 +6,26 @@
  * @LastEditors: ZhangHongYu
  * @LastEditTime: 2022-07-02 19:33:57
 -->
-<center><img src="pic/numericalanalysis_cover.jpeg" width="300" height="400">
+<p align="center">
 
+<img src="pic/numericalanalysis_cover.jpeg" width="300" height="400">
 
-# 数值分析
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/orion-orion/NumericalAnalysis) [![](https://img.shields.io/github/license/orion-orion/NumericalAnalysis)](https://github.com/orion-orion/NumericalAnalysis/blob/master/LICENSE) [![](https://img.shields.io/github/stars/orion-orion/NumericalAnalysis?style=social)](https://github.com/orion-orion/NumericalAnalysis)
-____
+</p>
+
+<div align="center">
+
+# 数值分析(第二版)
+
 📚 天灭解析式，数值保平安~
 
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/orion-orion/NumericalAnalysis) [![](https://img.shields.io/github/license/orion-orion/NumericalAnalysis)](https://github.com/orion-orion/NumericalAnalysis/blob/master/LICENSE) [![](https://img.shields.io/github/stars/orion-orion/NumericalAnalysis?style=social)](https://github.com/orion-orion/NumericalAnalysis) [![](https://img.shields.io/github/forks/orion-orion/NumericalAnalysis-Python?style=social)](https://github.com/orion-orion/NumericalAnalysis) 
+<br/>
+[![](https://img.shields.io/github/directory-file-count/orion-orion/NumericalAnalysis-Python)](https://github.com/orion-orion/NumericalAnalysis) [![](https://img.shields.io/github/languages/code-size/orion-orion/NumericalAnalysis-Python)](https://github.com/orion-orion/NumericalAnalysis) 
 
-</center>
+
+
+
+</div>
 
 ## 1 简介
 本项目为《数值分析》(Timothy Sauer著) 第二版中的算法实现（使用Python+Numpy+Pytorch）。
